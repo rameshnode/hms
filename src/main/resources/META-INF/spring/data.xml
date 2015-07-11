@@ -23,7 +23,7 @@
 	</bean>
 
 	<!-- Creates an in-memory HSQLDB Database -->
-	<jdbc:embedded-database id="dataSource">
+	<jdbc:embedded-database id="dataSource" type="HSQL" >
 		<jdbc:script location="classpath:import.sql" />
 	</jdbc:embedded-database>
 
