@@ -1,1 +1,3 @@
 launchConfigurations/
+/.apt_generated/
+/target/
