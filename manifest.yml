@@ -1,8 +1,8 @@
 applications:
 - disk_quota: 2048M
-  host: spring-travel
-  name: spring-travel
-  path: spring-travel.war
+  host: greenhouse-travel
+  name: greenhouse-travel
+  path: greenhouse-travel.war
   domain: mybluemix.net
   instances: 1
   memory: 2048M
