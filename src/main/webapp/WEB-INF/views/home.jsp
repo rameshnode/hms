@@ -1,5 +1,5 @@
 <div>
-	<h1>Welcome to ASE Greenhouse case study for Hotel Booking </h1>
+	<h1>Welcome to Java case study for Hotel Booking </h1>
 	<p>
 	 	This sample demonstrates how to use Spring MVC together with JavaServerPages (JSP).
 	 	<br />
