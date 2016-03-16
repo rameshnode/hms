@@ -6,16 +6,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-<!--	<http>
+	<http>
 		 Authentication policy 	
 		<form-login login-page="/users/login" login-processing-url="/users/login/authenticate" default-target-url="/hotels" authentication-failure-url="/users/login?login_error=1"/>
 		<logout logout-url="/users/logout" logout-success-url="/users/logoutSuccess"/>
-	</http>-->
+	</http>
 
 
- <http auto-config='true'>
+<!-- <http auto-config='true'>
     <intercept-url pattern="/**" access="ROLE_USER" />
-  </http>
+  </http>-->
 	<!--
 		Define local authentication provider, a real app would use an external provider (JDBC, LDAP, CAS, etc)
 		
@@ -33,7 +33,6 @@
 				<user name="erwin" password="12430911a8af075c6f41c6976af22b09" authorities="ROLE_USER, ROLE_SUPERVISOR" />
 				<user name="jeremy" password="57c6cbff0d421449be820763f03139eb" authorities="ROLE_USER" />
 				<user name="scott" password="942f2339bf50796de535a384f0d1af3e" authorities="ROLE_USER" />
-				<user name="ram" password="b8c17cb6519f20557fdd392767d383b6" authorities="ROLE_USER" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
