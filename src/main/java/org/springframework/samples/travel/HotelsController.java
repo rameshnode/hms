@@ -55,7 +55,7 @@ public class HotelsController {
 	}
 	
 	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.GET)
-	public String deleteBooking(@PathVariable Long id,Model model) {
+	public String placeBooking(@PathVariable Long id,Model model) {
 		//bookingService.cancelBooking(id);
 		
 		return "redirect:../hotels/enterBookingDetails";
