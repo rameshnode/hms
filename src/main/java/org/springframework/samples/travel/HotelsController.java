@@ -47,13 +47,22 @@ public class HotelsController {
     * Hotel beanshould be injected in order to persist user choosen hotel
     */
 
-	@RequestMapping(value = "/hotels/booking", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/hotels/bookings", method = RequestMethod.GET)
 	public String bookHotel(@RequestParam Long hotelId,Principal currentUser,Model model) {
 		model.addAttribute(bookingService.findHotelById(hotelId));
 		System.out.println("Hotel id is :" + hotelId);
 		System.out.println("User logged in is "+ currentUser.getName());
 		return "redirect:../hotels/show";
-	}
+	}*/
+	
+	
+		@RequestMapping(value = "/hotels/{hotelId}", method = RequestMethod.GET)
+		public String showHotel(@RequestParam Long hotelId,Principal currentUser,Model model) {
+		model.addAttribute(bookingService.findHotelById(hotelId));
+		System.out.println("Hotel id is :" + hotelId);
+		System.out.println("User logged in is "+ currentUser.getName());
+		return "redirect:../hotels/show";
+		}
 
 	@RequestMapping(value = "/bookings/{id}", method = RequestMethod.DELETE)
 	public String deleteBooking(@PathVariable Long id) {
