@@ -60,5 +60,12 @@ public class HotelsController {
 		model.addAttribute(booking);
 		return "hotels/enterBookingDetails";
 	}
+	
+	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
+	public String proceedBooking(@PathVariable Long id,Model model,Booking booking) {
+		//bookingService.cancelBooking(id);
+		model.addAttribute(booking);
+		return "hotels/search";
+	}
 
 }
