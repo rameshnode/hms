@@ -79,12 +79,12 @@ public class HotelsController {
 		Hotel hotel = bookingService.findHotelById(hotelId);
 		booking.setHotel(hotel);
 		model.addAttribute(booking);
-		return "redirect:..hotels/enterBookingDetails";
+		return "hotels/enterBookingDetails";
 	}
 	
 	
 		@RequestMapping(value = "/hotels/booking", method = RequestMethod.POST)
-	public String enterBookingDetailsPOST(@RequestParam Long hotelId,Principal currentUser,Model model,Booking booking) {
+	public String enterBookingDetailsPOST(@RequestParam Long hotelId,Principal currentUser,Model model,@ModelAttribute("booking") Booking booking) {
 		//bookingService.cancelBooking(id);
 	    System.out.println(booking);
 	     System.out.println("Hotel is " + booking.getHotel());
