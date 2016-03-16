@@ -61,7 +61,7 @@ public class HotelsController {
 		model.addAttribute(bookingService.findHotelById(hotelId));
 		System.out.println("Hotel id is :" + hotelId);
 		System.out.println("User logged in is "+ currentUser.getName());
-		return "redirect:../hotels/show";
+		return "hotels/show";
 		}
 
 	@RequestMapping(value = "/bookings/{id}", method = RequestMethod.DELETE)
