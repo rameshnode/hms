@@ -48,10 +48,11 @@ public class HotelsController {
     */
 
 	@RequestMapping(value = "/hotels/booking", method = RequestMethod.GET)
-	public String bookHotel(@RequestParam int hotelId) {
-		//model.addAttribute(bookingService.findHotelById(id));
+	public String bookHotel(@RequestParam int hotelId,Principal currentUser) {
+		model.addAttribute(bookingService.findHotelById(hotelId));
 		System.out.println("Hotel id is :" + hotelId);
-		return "hotels/"+hotelId;
+		System.out.println("User logged in is "+ currentUser.getName());
+		return "redirect:../hotels/show;
 	}
 
 	@RequestMapping(value = "/bookings/{id}", method = RequestMethod.DELETE)
