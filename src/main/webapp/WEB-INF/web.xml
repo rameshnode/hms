@@ -25,7 +25,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<!-- Secures the application 
+<!-- 	<!-- Secures the application  -->
 	<filter>
 		<filter-name>springSecurity</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -38,7 +38,7 @@
 	<filter-mapping>
 		<filter-name>springSecurity</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>-->
+	</filter-mapping>
 
 	<!-- Handles all requests into the application -->
 	<servlet>
