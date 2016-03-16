@@ -87,7 +87,8 @@ public class HotelsController {
 	public String enterBookingDetailsPOST(@RequestParam Long hotelId,Principal currentUser,Model model,Booking booking) {
 		//bookingService.cancelBooking(id);
 	    System.out.println(booking);
-		return "hotels/search";
+	    model.addAttribute(booking);
+		return "hotels/booking/reviewBooking";
 	}
 	
 //	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
