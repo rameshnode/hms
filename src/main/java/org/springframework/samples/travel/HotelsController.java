@@ -55,9 +55,9 @@ public class HotelsController {
 	}
 	
 	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.GET)
-	public String placeBooking(@PathVariable Long id,Model model) {
+	public String placeBooking(@PathVariable Long id,Model model,Booking booking) {
 		//bookingService.cancelBooking(id);
-		
+		model.addAttribute(booking);
 		return "hotels/enterBookingDetails";
 	}
 
