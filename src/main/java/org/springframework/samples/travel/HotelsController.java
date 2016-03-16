@@ -79,7 +79,7 @@ public class HotelsController {
 		Hotel hotel = bookingService.findHotelById(hotelId);
 		booking.setHotel(hotel);
 		model.addAttribute(booking);
-		return "hotels/enterBookingDetails";
+		return "redirect:..hotels/enterBookingDetails";
 	}
 	
 	
