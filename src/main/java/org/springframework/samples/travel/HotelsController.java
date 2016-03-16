@@ -58,7 +58,7 @@ public class HotelsController {
 	public String placeBooking(@PathVariable Long id,Model model) {
 		//bookingService.cancelBooking(id);
 		
-		return "redirect:../hotels/enterBookingDetails";
+		return "hotels/enterBookingDetails";
 	}
 
 }
