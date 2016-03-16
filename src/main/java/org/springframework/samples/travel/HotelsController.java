@@ -88,7 +88,7 @@ public class HotelsController {
 		//bookingService.cancelBooking(id);
 	    System.out.println(booking);
 	    model.addAttribute(booking);
-		return "hotels/booking/reviewBooking";
+		return "hotels/reviewBooking";
 	}
 	
 //	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
