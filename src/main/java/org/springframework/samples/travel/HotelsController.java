@@ -72,18 +72,25 @@ public class HotelsController {
 		return "redirect:../hotels/search";
 	}
 	
-	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.GET)
-	public String placeBooking(@PathVariable Long id,Model model,Booking booking) {
+	//http://11069081.au-syd.mybluemix.net/hotels/booking?hotelId=1
+	@RequestMapping(value = "/hotels/bookings", method = RequestMethod.GET)
+	public String enterBookingDetails(@RequestParam Long hotelId,Principal currentUser,Model model,Booking booking) {
 		//bookingService.cancelBooking(id);
+		Hotel hotel = bookingService.findHotelById(hotelId);
+		booking.setHotel(hotel);
 		model.addAttribute(booking);
 		return "hotels/enterBookingDetails";
 	}
 	
-	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
-	public String proceedBooking(@PathVariable Long id,Model model,Booking booking) {
-		//bookingService.cancelBooking(id);
-		model.addAttribute(booking);
-		return "hotels/search";
-	}
+//	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
+//	public String proceedBooking(@PathVariable Long id,Model model,Booking booking) {
+//		//bookingService.cancelBooking(id);
+//		model.addAttribute(booking);
+//		System.out.println("Hotel id is :" + id);
+//		model.addAttribute(bookingService.findHotelById(id));
+//		System.out.println("Hotel id is :" + id);
+//		System.out.println("User logged in is "+ currentUser.getName());
+//		return "hotels/search";
+//	}
 
 }
