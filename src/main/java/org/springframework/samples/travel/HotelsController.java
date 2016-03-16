@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HotelsController {
@@ -41,11 +42,16 @@ public class HotelsController {
 		return "hotels/list";
 	}
 
+   /**
+    * 
+    * Hotel beanshould be injected in order to persist user choosen hotel
+    */
 
-	@RequestMapping(value = "/hotels/{id}", method = RequestMethod.GET)
-	public String show(@PathVariable Long id, Model model) {
-		model.addAttribute(bookingService.findHotelById(id));
-		return "hotels/show";
+	@RequestMapping(value = "/hotels/booking", method = RequestMethod.GET)
+	public String bookHotel(@RequestParam int hotelId) {
+		//model.addAttribute(bookingService.findHotelById(id));
+		System.out.println("Hotel id is :" + hotelId);
+		return "hotels/"+hotelId;
 	}
 
 	@RequestMapping(value = "/bookings/{id}", method = RequestMethod.DELETE)
