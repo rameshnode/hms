@@ -56,12 +56,12 @@ public class HotelsController {
 	}*/
 	
 	
-		@RequestMapping(value = "/hotels/{hotelId}", method = RequestMethod.GET)
-		public String showHotel(@RequestParam Long hotelId,Principal currentUser,Model model) {
+		@RequestMapping(value = "/hotels/{id}", method = RequestMethod.GET)
+		public String showHotel(@PathVariable Long id,Principal currentUser,Model model) {
 		
-		System.out.println("Hotel id is :" + hotelId);
-		model.addAttribute(bookingService.findHotelById(hotelId));
-		System.out.println("Hotel id is :" + hotelId);
+		System.out.println("Hotel id is :" + id);
+		model.addAttribute(bookingService.findHotelById(id));
+		System.out.println("Hotel id is :" + id);
 		System.out.println("User logged in is "+ currentUser.getName());
 		return "hotels/show";
 		}
