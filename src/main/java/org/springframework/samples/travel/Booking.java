@@ -51,6 +51,15 @@ public class Booking implements Serializable {
 	private boolean smoking;
 
 	private int beds;
+	
+	private BigDecimal total = new BigDecimal(0);
+
+	/**
+	 * @param total the total to set
+	 */
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
 
 	private Set<Amenity> amenities;
 
@@ -69,7 +78,8 @@ public class Booking implements Serializable {
 
 	@Transient
 	public BigDecimal getTotal() {
-		return hotel.getPrice().multiply(new BigDecimal(getNights()));
+		  total = hotel.getPrice().multiply(new BigDecimal(getNights()));
+		  return total;
 	}
 
 	@Transient
