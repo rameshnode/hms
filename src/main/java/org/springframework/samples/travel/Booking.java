@@ -78,8 +78,11 @@ public class Booking implements Serializable {
 
 	@Transient
 	public BigDecimal getTotal() {
+		  		System.out.println(" getNights()) : " + getNights());
+		System.out.println("hotel.getPrice(): " + hotel.getPrice());
 		  total = hotel.getPrice().multiply(new BigDecimal(getNights()));
 		  return total;
+
 	}
 
 	@Transient
