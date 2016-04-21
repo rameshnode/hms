@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class HotelsController {
 
 	private BookingService bookingService;
-	
+	private Booking booking;
 	static int status = 0;
 
 	@Inject
@@ -61,8 +61,6 @@ public class HotelsController {
 		
 		System.out.println("Hotel id is :" + id);
 		model.addAttribute(bookingService.findHotelById(id));
-		System.out.println("Hotel id is :" + id);
-		System.out.println("User logged in is "+ currentUser.getName());
 		return "hotels/show";
 		}
 
@@ -92,15 +90,30 @@ public class HotelsController {
 		return "hotels/reviewBooking";
 	}
 	
-//	@RequestMapping(value = "/hotels/bookings/{id}", method = RequestMethod.POST)
-//	public String proceedBooking(@PathVariable Long id,Model model,Booking booking) {
-//		//bookingService.cancelBooking(id);
-//		model.addAttribute(booking);
-//		System.out.println("Hotel id is :" + id);
-//		model.addAttribute(bookingService.findHotelById(id));
-//		System.out.println("Hotel id is :" + id);
-//		System.out.println("User logged in is "+ currentUser.getName());
-//		return "hotels/search";
-//	}
+	
+	@RequestMapping(value="/hotels/booking/{id}", method=RequestMethod.GET)
+	public String proceedBooking(/*@RequestParam("hotelId") Long id,*/@PathVariable Long id, Model model,Principal p)
+	{
+		booking =new Booking(bookingService.findHotelById(id),bookingService.findUser(p.getName()));
+		model.addAttribute(booking);
+		return "enterBookingDetails";
+	}
 
+	@ModelAttribute("booking")
+	public Booking createBooking()
+	{
+		return booking;
+	}
+	
+	/**
+	 * This controller is user for revise function in UI. To revise the details of form filled in the enterBookingDetails.
+	 * It just passes the model attribute to the enterBookingDetails.
+	 * This controller returns the View enterBookingDetails.jsp with previous details filled.
+	 */
+	@RequestMapping(value="/hotels/booking/review", method=RequestMethod.GET)
+	public String reviewBooking(@ModelAttribute("booking") Booking booking, Model model) 
+	{	
+		model.addAttribute(booking);		
+		return "enterBookingDetails";
+	}
 }
