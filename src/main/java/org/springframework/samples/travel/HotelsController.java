@@ -128,4 +128,8 @@ public class HotelsController {
 	    model.addAttribute(booking);
 		return "redirect:status";
 	}
+	@RequestMapping(value="/hotels/status", method=RequestMethod.GET)
+	public String showStatus(){
+		return "status";
+	}
 }
