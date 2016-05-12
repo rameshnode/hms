@@ -116,4 +116,16 @@ public class HotelsController {
 		model.addAttribute(booking);		
 		return "enterBookingDetails";
 	}
+	
+	
+	
+		@RequestMapping(value = "/hotels/booking", method = RequestMethod.POST,params="_eventId_confirm")
+	public String saveBooking(@ModelAttribute("booking") Booking booking,Model model) {
+		//bookingService.cancelBooking(id);
+		System.out.println("#..............................booking is being confirmed.................####");
+	    System.out.println("Booking is :"+ booking);
+	     System.out.println("Hotel is " + booking.getHotel());
+	    model.addAttribute(booking);
+		return "hotels/search";
+	}
 }
