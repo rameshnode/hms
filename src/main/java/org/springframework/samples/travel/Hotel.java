@@ -41,6 +41,15 @@ public class Hotel implements Serializable {
 		
 	}
 	
+	private String rating;
+	
+	public void setRating(String rating){
+		this.rating = rating;
+	}
+	
+	public String getRating(){
+		return rating;
+	}
 	public Hotel(){
 		
 	}
