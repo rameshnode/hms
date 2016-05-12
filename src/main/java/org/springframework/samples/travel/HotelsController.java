@@ -126,6 +126,6 @@ public class HotelsController {
 	    System.out.println("Booking is :"+ booking);
 	     System.out.println("Hotel is " + booking.getHotel());
 	    model.addAttribute(booking);
-		return "redirect:hotels/status";
+		return "redirect:status";
 	}
 }
